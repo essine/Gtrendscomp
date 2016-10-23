@@ -1,0 +1,25 @@
+h1.help_title { 
+	margin: 1%;
+	font-size: 1.1em;
+        font-weight: bold;
+        color: rgba(0, 0, 0, 0.8); 
+}
+
+body.help_body {
+	background-color: rgba(230,230,230,1);
+}
+
+.design_element { color: blue; 
+                  display: inline; }
+
+.design_element_strong { color: blue;
+                         display: inline;
+                         font-weight: bold; }
+
+.warning_element { color: red; 
+                  display: inline; }
+
+.note_element { color: green; 
+                  display: inline; }
+
+pre {   background-color: rgba(230,230,230,1); }

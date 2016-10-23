@@ -1,0 +1,31 @@
+.shiny-progress .progress-text {
+  position: relative;
+  padding-left: 50%;
+  width: 100%;
+  background-color: transparent;
+}
+
+.shiny-progress .progress-text .progress-message {
+  font-weight: bold;
+  font-size: 120%;
+  -webkit-animation: blink 3s infinite; /* Chrome, Safari, Opera */
+  -moz-animation:    blink 3s infinite; /* Mozilla */
+  -o-animation:      blink 3s infinite; /* old Opera */
+  animation:         blink 3s infinite; /* Standard syntax */ 
+}
+
+.shiny-progress .progress-text .progress-detail {
+  font-weight: bold;
+  font-size: 200%;
+  -webkit-animation: blink 0.3s infinite; /* Chrome, Safari, Opera */
+  -moz-animation:    blink 0.3s infinite; /* Mozilla */
+  -o-animation:      blink 0.3s infinite; /* old Opera */
+  animation:         blink 0.3s infinite; /* Standard syntax */ 
+}
+
+@keyframes blink {
+     0% { color: rgba(51, 122, 183, 0.1); }
+   100% { color: rgba(51, 122, 183, 1.0); }
+}
+
+/* other styles are inline, see inlineStyles.R */

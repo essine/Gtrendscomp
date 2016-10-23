@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <link type="text/css" rel="stylesheet" href="help.css"/>
+    <link rel="icon" type="image/png" href="favicon.png"/>
+    <title>upload</title>
+  </head>
+<body class="help_body">
+<pre>
+<h1 class="help_title">Upload and import CSV formatted data</h1>
+ The <div class="design_element">'Upload'</div> module supports import of a CSV formatted trends data for further analysis.
+ These could be custom data, data manually requested from Google Trends or data previously saved by the 'Data' module.
+ The CSV file should contain columns with date and trends data, as well as a header row with column names.
+ The column names will be used as labels for trends.
+
+ The <div class="design_element_strong">'CSV file format'</div> can be set as :
+
+   <div class="design_element">'gtrendscomp CSV'</div>  - format in which <div class="design_element">'Date'</div> program module saves data.
+
+   <div class="design_element">'custom CSV'</div>       - format which allows to skip the first few lines of a CSV file and/or 
+                        replace column names (see <div class="note_element">'custom CSV' note</div> at the page bottom). 
+                        If 'custom CSV' item is selected the additional input fields appear: 
+
+                        <div class="design_element">'Skip n lines'</div>     - numeric input field to set the number of header lines to skip.
+
+                        <div class="design_element">'Set column names'</div> - checkbox to activate column names edit option.  
+                        If 'Set column names'checkbox is activated the text fields to enter column names 
+                        and the checkboxes appear. To replace a column name the corresponding checkbox should be selected.
+
+ To upload a CSV file use <div class="design_element_strong">'Choose file'</div> button (see <div class="warning_element">'Choose file' warning</div> at the bottom of the page). 
+ The loaded data will be displayed as a table.
+
+ The <div class="design_element_strong">'Example CSV'</div> checkbox is responsible for loading the example CSV file <div class="design_element">'gtrendscomp.csv'</div>. 
+ The trends are equally scaled in the example (see <div class="note_element">'Data type'</div> note at the bottom of the <div class="design_element">'Query'</div> help page).
+ Please keep in mind that the information about the query parameters is not available upon a CSV file upload. 
+ If the example data are loaded, <div class="design_element">'Apply'</div> button press can be skipped.
+
+ Click <div class="design_element_strong">'Apply'</div> button to accept the data displayed. 
+ The data will be presented graphically and accept for further analysis.
+
+ The help window appears when <div class="design_element_strong">'Help'</div> button is pressed. Click the <div class="design_element">'Close'</div> button to close the window.
+
+ On an error, the error window could appear (see <div class="warning_element">'Error window' warning</div> at the bottom of the page). 
+
+ <div class="note_element">Notes:</div>
+  <div class="note_element">'custom CSV': Google trends CSV file format.</div> 
+   The 'custom CSV' file format can be used to upload a CSV file obtained from google trends service.
+   For that, set 'Skip n lines' parameter to 1, select 'Set column names' checkbox and manually insert column names. 
+   Please keep in mind that Google Trends CSV file format is subject to change by Google.
+   If that happen, the recipe will not work without modification.
+  
+ <div class="warning_element">Warnings:</div> 
+  <div class="warning_element">'Choose file': Reload problem.</div> 
+   There is a problem to reload a CSV file without changing its name.
+   Joe Cheng, a software developer on RStudio, suggest the following:
+   "You might try clicking Browse and then Cancel - on my browser at least, 
+   that causes the field to get blanked out, so you can choose a new file. It's not ideal, to say the least..."
+   A less heavy solution to the above is to upload an another small CSV file first (e.g. example file 'gtrendscomp.csv').
+
+  <div class="warning_element">'Error window': Error window closing.</div>
+   To close an error window please click <div class="design_element">'Close please'</div> button.
+   Otherwise the window remains open even if the error disappeared.
+</pre>
+   </p>
+  </body>
+</html>

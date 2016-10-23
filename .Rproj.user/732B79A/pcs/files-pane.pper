@@ -1,0 +1,9 @@
+{
+    "path" : "~/Rstat/Gtrendscomp",
+    "sortOrder" : [
+        {
+            "ascending" : true,
+            "columnIndex" : 2
+        }
+    ]
+}

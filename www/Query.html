@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <link type="text/css" rel="stylesheet" href="help.css"/>
+    <link rel="icon" type="image/png" href="favicon.png"/>
+    <title>query</title>
+  </head>
+<body class="help_body">
+<pre>
+<h1 class="help_title">Retrieve data from Google Trend </h1>
+ The <div class="design_element">'Query'</div> module retrieves data from Google Trends (see <div class="note_element">'Query' note</div> at the page bottom). 
+ To retrieve data a valid <div class="design_element_strong">'Google account'</div> is required. 
+ Use <div class="design_element">'EML'</div> and <div class="design_element">'PWD'</div> text fields to provide a google account's email address and the corresponding password.
+
+ To perform a search, insert search terms the text fields in the <div class="design_element_strong">'Search terms'</div> section.
+ If more than two search items are required, select the checkbox located next to the text 'Search terms'.
+ Each text field is accompanied by a checkboxs, which should be selected to include 
+ the corresponding search term in the query.
+ 
+ To restrict your search by a date range, activate the <div class="design_element_strong">'Date range'</div> checkbox and set the <div class="design_element">'From:'</div> and <div class="design_element">'To:'</div> values.
+ By default, the maximal range is set. Start date must be greater than 2004-01-01.
+ If the 'Scale' parameter is selected, the 'Date range' parameters are ignored.
+ 
+ Select the <div class="design_element_strong">'Options'</div> checkbox to set additional query parameters (see <div class="note_element">'Options' note</div> at the page bottom) :
+
+   <div class="design_element">'Scale'</div>    parameter determines the time scale resolution. The possible choices are "NA", "1h", "4h", "1d" or "7d".
+              By deafult, the parameter is switched off ("NA"). 
+              If a scale resolution is selected, the date range parameters are ignored.
+
+   <div class="design_element">'Geo'</div>      parameter denotes the geographic regions for the query. By deafult, the global query is selected ("all").
+              One or several regions can be indicated in a comma separated list, e.g. "US","US-AL" or "US,CA,FR".
+
+   <div class="design_element">'Category'</div> parameter indicates the category for the query. By deafult, all of the categories are selected ("0").
+              If necessary, please provide a category code, such as e.g. "0-18" for 'Shopping', "0-7" for 'Finance', 
+              "0-5" for 'Computers & Electronics' or "0-5-32" for 'Software'.
+
+ The <div class="design_element_strong">'Data type'</div> menu determines the data obtaining method (see <div class="note_element">'Data type' note</div> at the bottom of the page). 
+ The possible selections are:
+
+   <div class="design_element">'Google data'</div>    - trends data will be obtained by single request from google.
+ 
+   <div class="design_element">'Equally scaled'</div> - each trend will be obtained by separate request from google, and, 
+                      as a result, trends are scaled equally.
+
+   <div class="design_element">'Improved data'</div>  - trends data will be obtained by single request and by separate request for each trend.
+                      Final data are data obtained by separate requests and rescaled using the relations between 
+                      trends calculated from single request data.
+
+ The <div class="design_element_strong">'Example data'</div> checkbox is responsible for loading the example data.
+ If the example is loaded, 'Query' button press can be skipped. Please keep in mind that 
+ the query parameters will be updated according to the example data. If necessary, 
+ correct the 'Options' and 'Data type' parameters before the next query is executed.
+
+ Click <div class="design_element_strong">'Query'</div> button to retrieve the data from Google Trends.
+ The <div class="design_element">'Retrieving data from google ...'</div> message appears and blinks during the process.
+
+ The data will be presented graphically in the <div class="design_element_strong">'Google trends plot'</div> window and accept for further analysis.
+ Under the window the <div class="design_element_strong">'Select traces to plot'</div> option will appear, which allows to select plot data.
+
+ The help window appears when <div class="design_element_strong">'Help'</div> button is pressed. Click the <div class="design_element">'Close'</div> button to close the window.
+
+ On an error, the error window could appear (see <div class="warning_element">'Error window' warning</div> at the page bottom). 
+
+ <div class="note_element">Notes:</div>
+ <div class="note_element">'Query': The 'gtrendsR' R package.</div>
+ 'Query' module is based on 'gconnect()' and 'gtrends()' functions from R package 'gtrendsR'. 
+  The requirements for the query parameters are detailed described in 'gtrendsR' package documentation.
+  The relevant information will be cited or provided here.
+  
+  If the environment variables GOOGLE_USER and GOOGLE_PASSWORD are set, they will be used 
+  to initialize the 'EML' and 'PWD' text fields.
+
+  Sometimes 'gtrends()' function reports the error "Not enough search volume. Please change your search terms".
+  Philippe Massicotte, one of the 'gtrendsR' package authors, think that "Google only blocks programmed queries 
+  after quota is reached. Hence, after a certain number of queries they will only accept manual requests".
+  Manually requested data can be uploaded by the 'Upload' module of 'gtrendscomp' program for further analysis.
+  After a while the programmed queries to Google Trends become available again.
+
+ <div class="note_element">'Options': The 'Scale' parameter.</div>
+  The 'Scale' parameter in 'Query' module corresponds to 'res' parameter in 'gtrends()' function.
+  The 'gtrends()' help provides the following information about 'res': 
+  "Query resolution
+   By default, Google returns weekly information when the requested data spans a period greater than three months. 
+   It is also possible to obtain daily and hourly information. However, these are only available for a certain 
+   period prior to the current date. For instance, 1h, 7h, 1d and 7d denote trends data for the last 1 hour, 
+   last four hours, last day and last seven days respectively. Using one of the above res will return 
+   the corresponding hourly data. Note that data requested for a period between one and three months 
+   will be returned daily. For a period greater than three months, data will be always returned weekly".
+
+ <div class="note_element">'Data type': Loss of google data precision.</div>
+   Google Trends data are normalized so that the highest point equals 100. 
+   If the difference between the trends maximums became close to 100, google generates trends data 
+   with a small numbers resulting in loss of data precision. To avoid the problem, the data for each trend can be 
+   obtained by separate request from google. In this case, all the trends will be scaled equally and reach maximum 
+   height of 100. To keep the original relations between trends the data can be rescaled using the information 
+   retrieved from google data obtained by single request.
+
+ <div class="warning_element">Warnings:</div> 
+  <div class="warning_element">'Error window': Error window closing.</div>
+   To close an error window please click <div class="design_element">'Close please'</div> button.
+   Otherwise the window remains open even if the error disappeared.
+</pre>
+   </p>
+  </body>
+</html>
