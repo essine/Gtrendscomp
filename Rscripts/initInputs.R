@@ -163,7 +163,7 @@ if(exists("GOOGLE_PASSWORD")) .pwd_value = GOOGLE_PASSWORD else .pwd_value="pass
 .sdate = as.Date("2004-01-01") # must be greater than 2004-01-01, see help for gtrends()
 .edate   = as.Date(Sys.time())
 
-.example  = FALSE   # checkboxInput "QueryExample" -> load example data
+.example  = TRUE   # checkboxInput "QueryExample" -> load example data
 .cutquerysize = 7   # create a label from the fist 7th symbols of a query
 .shinyappsio = FALSE # 'FALSE' if application is running locally and 'TRUE' if remotely, at shinyapps.io 
 
